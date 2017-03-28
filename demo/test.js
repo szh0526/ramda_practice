@@ -17,7 +17,7 @@ var _slice = R.slice(1, 3);
 var _take = R.slice(0,R.__);
 var _len = R.head(_take(1)(['e ', 'd', 'g', 'f']));
  
-/*log(_words('.')('a.b.c'));
+log(_words('.')('a.b.c'));
 log(_maps(['b,c,d','e,f,g']));
 log(_filterQs(['aab','na','na','123']));
 log(R.sum(_slice(['1', '2', '3', '4'])))
@@ -25,7 +25,7 @@ log(R.pipe(R.trim,R.length)(_len))
 log(R.gte(1,2))
 log(R.gt(1,2))
 log(R.lte(1,2))
-log(R.lt(1,2))*/
+log(R.lt(1,2))
 
 /*
 step1:10 + 10 = 20; 
@@ -34,13 +34,13 @@ step3:0 + 30 =30;
 x:是每次计算的结果
 y:[10,-20,30]
 */
-/*var _max = R.reduce(function(x,y){
+var _max = R.reduce(function(x,y){
     //log(R.gte(x,y));
     return R.ifElse(R.gte(x),R.always(x),R.always(y))(y);
 }, 10);
-log(_max([10,-20,30]))*/
+log(_max([10,-20,30]))
 
-/*var CARS = [
+var CARS = [
     {name: "Ferrari FF", horsepower: 660, dollar_value: 700000, in_stock: true, delicious:[1,2,3]},
     {name: "Spyker C12 Zagato", horsepower: 650, dollar_value: 648000, in_stock: false, delicious:[4,5,6]},
     {name: "Jaguar XKR-S", horsepower: 550, dollar_value: 132000, in_stock: false, delicious:[7,8,9]},
@@ -83,10 +83,10 @@ log(test8(['Hello 1','Hello 2','Hello 3','Hello 4','Hello 5']));
 log(test9(CARS));
 log(test10(CARS));
 log(test11(CARS));
-log(test12);*/
+log(test12);
 
 
-/*var users = [ 
+var users = [ 
     { 'user': 'bar', 'age': 36, 'status':3 }, 
     { 'user': 'fre', 'age': 40, 'status':1 }, 
     { 'user': 'peb', 'age': 18, 'status':2 } 
@@ -104,4 +104,4 @@ var youngestUser = R.compose(R.head, _sort('age'));
 log(joinage(users));
 log(joinbrith(users));
 log(status(users));
-log(older(users));*/
+log(older(users));
