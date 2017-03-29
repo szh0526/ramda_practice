@@ -34,10 +34,14 @@ var _condPower = R.cond([
     [R.gte(600),R.always('E')],
     [R.T,R.always('F')]
 ]);
+var _propEqInstock = R.propEq('in_stock',R.__);
+var _propEqDollarValue = R.propEq('dollar_value',R.__);
 var _groupByHorsepower = R.groupBy(R.pipe(_prop('horsepower'),_condPower));
-var _allpassT = R.allPass([R.propEq('in_stock',false), R.propEq('dollar_value',1300000)]);
-var _allpassF = R.allPass([R.propEq('in_stock',false), R.propEq('dollar_value',1400000)]);
-var _anypass = R.anyPass([R.propEq('in_stock',false), R.propEq('dollar_value',1400000)]);
+var _allpassT = R.allPass([_propEqInstock(false), _propEqDollarValue(1300000)]);
+var _allpassF = R.allPass([_propEqInstock(false), _propEqDollarValue(1400000)]);
+var _anypass = R.anyPass([_propEqInstock(false), _propEqDollarValue(1400000)]);
+var _and = R.and(_propEqInstock(false), _propEqDollarValue(1400000));
+var _or = R.or(_propEqInstock(false), _propEqDollarValue(1400000));
 var t1 = R.pipe(R.head,R.has('name'));
 var t2 = R.pipe(R.head,R.hasIn('name'));
 var t3 = R.pipe(R.head,_prop('delicious'),R.init);
@@ -87,6 +91,9 @@ var tt31 = R.partial(function(){
 var tt32 = R.partialRight(function(){
   return R.values(arguments);
 }, ['parm1','parm2']);
+var tt33 = R.any(R.lte(200),[100,300]);
+var tt34 = R.compose(_and,R.last);
+var tt35 = R.compose(_or,R.last);
 
 
 log(tt1(CARS));
@@ -118,11 +125,15 @@ log(tt25([0, 1, 1, 2, 3, 5, 8, 13, 21]))
 log(tt26(10));
 log(tt26(20));
 log(tt27);
+log(tt33);
 log(tt28(CARS));
 log(tt29(CARS));
 log(tt30(CARS));
 log(tt31("parm3","parm4",['parm5']));
 log(tt32("parm3","parm4",['parm5']));
+log(tt34(CARS));
+log(tt35(CARS));
+log("===================================")
 log(R.inc(1));
 log(t1(CARS));
 log(t2(CARS));
