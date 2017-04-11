@@ -19,3 +19,15 @@
 let purefn = (a) => (b) => a(b);
 //2.curry
 let curryfn = (x) => (y) => x + y;
+
+
+
+/*(a → a) → Number → [a] → [a]  
+参数1:(a → a)函数  参数2:Number 参数3：[a]数组 返回值:[a]
+(a → Boolean) → [a] → Boolean
+参数1:(a → Boolean)函数传a参数返回Boolean  参数2:[a]数组 返回值Boolean
+[(*… → Boolean)] → (*… → Boolean)
+参数1：[(*… → Boolean)]数组包括一个返回Booleand的函数该函数参数为*...（多个不定类型参数）
+返回值:(*… → Boolean)函数参数为多个不定类型参数返回Boolean
+String → a → {k: v} → {k: v}
+参数1:String类型的 参数2:a 参数3:{k: v}对象 返回值:{k: v}*/
